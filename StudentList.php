@@ -60,10 +60,11 @@
             }
         } else {
             echo "No Results Found.";
+
         }
         ?>
 
     </table><br>
-    <a href="Add_Student.php">Add Student</a>
+    <a href="Add_Student.php" class="add">Add Student</a>
 </body>
 </html>

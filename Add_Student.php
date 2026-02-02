@@ -9,16 +9,16 @@
     <h2>Add Student</h2>
     <form class="add_from" method="POST">
 
-        <label for="name">Name:</label><br>
+        <label for="name">Name:</label>
         <input type="text" name="std_name" required><br><br>
 
-        <label for="age">Age:</label><br>
+        <label for="age">Age:</label>
         <input type="text" name="std_age" required><br><br>
 
-        <label for="class">Class: </label><br>
+        <label for="class">Class: </label>
         <input type="text" name="class" required><br><br>
 
-        <label for="email">Email:</label><br>
+        <label for="email">Email:</label>
         <input type="email" name="std_email" required><br><br>
 
         <button type="submit">Save</button>
