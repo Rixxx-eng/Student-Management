@@ -7,11 +7,20 @@
 </head>
 <body>
     <h2>Add Student</h2>
-    <form method="POST">
-        Name: <input type="text" name="std_name" required><br>
-        Age: <input type="text" name="std_age" required><br>
-        Class: <input type="text" name="class" required><br>
-        Email: <input type="email" name="std_email" required><br>
+    <form class="add_from" method="POST">
+
+        <label for="name">Name:</label><br>
+        <input type="text" name="std_name" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="text" name="std_age" required><br><br>
+
+        <label for="class">Class: </label><br>
+        <input type="text" name="class" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" name="std_email" required><br><br>
+
         <button type="submit">Save</button>
     </form>
 </body>

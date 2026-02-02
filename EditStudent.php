@@ -15,17 +15,17 @@
 <body>
     <h2>Edit Student Information</h2>
     <form method="POST">
-        <label for="">Name : </label>
-        <input type="text" name="std_name" value="<?= $row['std_name'] ?>" ><br>
+        <label for="">Name : </label><br>
+        <input type="text" name="std_name" value="<?= $row['std_name'] ?>" ><br><br>
 
-        <label for="">Age : </label>
-        <input type="number" name="std_age" value="<?= $row['std_age']?>"><br>
+        <label for="">Age : </label><br>
+        <input type="number" name="std_age" value="<?= $row['std_age']?>"><br><br>
 
-        <label for="">Class : </label>
-        <input type="text" name="class" value="<?= $row['class']?>" ><br>
+        <label for="">Class : </label><br>
+        <input type="text" name="class" value="<?= $row['class']?>" ><br><br>
 
-        <label for="">Email : </label>
-        <input type="email" name="std_email" value="<?= $row['std_email']?>" ><br>
+        <label for="">Email : </label><br>
+        <input type="email" name="std_email" value="<?= $row['std_email']?>" ><br><br>
 
         <button type="submit" value="Update Student">Save</button>
     </form>

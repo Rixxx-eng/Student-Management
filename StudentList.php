@@ -4,10 +4,11 @@
 <head>
     <title>Student Management</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h2>Student's List</h2>
-    <form method="GET" action="StudentList.php">
+    <form method="GET" action="StudentList.php" >
         <input
             type="text"
             name="keyword"
@@ -15,7 +16,7 @@
             value="<?php (isset($_GET['keyword'])) ? (isset($_GET['keyword'])) : "" ?>"
             class="form-control" required>
 
-        <button type="submit" class="btn mt-2">Search</button>
+        <button type="submit" class="btn">Search</button>
     </form><br>
 
     <table>
