@@ -9,17 +9,20 @@
     <h2>Add Student</h2>
     <form class="add_from" method="POST">
 
-        <label for="name">Name:</label>
+        <label for="name">Name:</label><br>
         <input type="text" name="std_name" required><br><br>
 
-        <label for="age">Age:</label>
+        <label for="age">Age:</label><br>
         <input type="text" name="std_age" required><br><br>
 
-        <label for="class">Class: </label>
+        <label for="class">Class: </label><br>
         <input type="text" name="class" required><br><br>
 
-        <label for="email">Email:</label>
+        <label for="email">Email:</label><br>
         <input type="email" name="std_email" required><br><br>
+
+        <label for="">Parent : </label><br>
+        <input type="text" name="prt_name" required><br><br>
 
         <button type="submit">Save</button>
     </form>
@@ -28,8 +31,8 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $stmt = $conn->prepare("INSERT INTO students (std_name, std_age, class, std_email) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $_POST['std_name'], $_POST['std_age'], $_POST['class'], $_POST['std_email']);
+    $stmt = $conn->prepare("INSERT INTO students (std_name, std_age, class, prt_name, std_email) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sisss", $_POST['std_name'], $_POST['std_age'], $_POST['class'], $_POST['prt_name'], $_POST['std_email']);
     $stmt->execute();
 
     header("Location: StudentList.php");

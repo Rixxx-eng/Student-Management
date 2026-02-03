@@ -4,21 +4,19 @@
 <head>
     <title>Student Management</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    <h2>Student's List</h2>
+    <h2>Student's List </h2>
     <form method="GET" action="StudentList.php" >
         <input
             type="text"
             name="keyword"
             placeholder="Search Students..."
-            value="<?php (isset($_GET['keyword'])) ? (isset($_GET['keyword'])) : "" ?>"
-            class="form-control" required>
+            value="<?php (isset($_GET['keyword'])) ? $_GET['keyword'] : "" ?>"
+            class="form-control">
 
         <button type="submit" class="btn">Search</button>
     </form><br>
-
     <table>
         <tr>
             <th>ID</th>
@@ -26,20 +24,19 @@
             <th>Age</th>
             <th>Class</th>
             <th>Email</th>
+            <th>Parent</th>
             <th>Actions</th>
         </tr>
         <?php
 
-        $keyword = trim($_GET['keyword'] ?? '');
+        $keyword = (isset($_GET['keyword'])) ? $_GET['keyword'] : "";
 
-        if (!empty($keyword)) {
-        
-            $stmt = $conn->prepare("SELECT * FROM students WHERE std_name LIKE ? OR class LIKE ? OR std_email LIKE ?"); 
+        if ($keyword) {
+            $stmt = $conn->prepare("SELECT * FROM students WHERE std_id LIKE ? OR std_name LIKE ? OR std_age LIKE ? OR class LIKE ? OR prt_name LIKE ? OR std_email LIKE ?"); 
             $LIKE = "%$keyword%";
-            $stmt->bind_param("sss", $LIKE, $LIKE, $LIKE);
+            $stmt->bind_param("isisss", $keyword, $LIKE, $keyword, $LIKE, $LIKE, $LIKE);
             $stmt->execute();
             $result = $stmt->get_result();
-            
         } else {
             $result = $conn->query("SELECT * FROM students");
         }
@@ -52,6 +49,8 @@
                         <td>{$row['std_age']}</td>
                         <td>{$row['class']}</td>
                         <td>{$row['std_email']}</td>
+                        <td>{$row['prt_name']}</td>
+                        
                         <td>
                             <a href='EditStudent.php?id={$row['std_id']}' >Edit</a> |
                             <a href='DeleteStudent.php?id={$row['std_id']}' >Delete</a>
@@ -59,11 +58,9 @@
                     </tr>";
             }
         } else {
-            echo "No Results Found.";
-
+            echo "<h2>No Results Found.</h2>";
         }
         ?>
-
     </table><br>
     <a href="Add_Student.php" class="add">Add Student</a>
 </body>

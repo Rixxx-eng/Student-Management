@@ -27,6 +27,10 @@
         <label for="">Email : </label><br>
         <input type="email" name="std_email" value="<?= $row['std_email']?>" ><br><br>
 
+        <label for="">Parent : </label><br>
+        <input type="text" name="prt_name" value="<?= $row['prt_name']?>" ><br><br>
+
+
         <button type="submit" value="Update Student">Save</button>
     </form>
 </body>
@@ -36,8 +40,8 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $stmt = $conn->prepare("UPDATE students SET std_name=?, std_age=?, class=?, std_email=? WHERE std_id=?");
-    $stmt->bind_param("sissi", $_POST['std_name'], $_POST['std_age'], $_POST['class'], $_POST['std_email'], $id);
+    $stmt = $conn->prepare("UPDATE students SET std_name=?, std_age=?, class=?, prt_name=?, std_email=? WHERE std_id=?");
+    $stmt->bind_param("sisssi", $_POST['std_name'], $_POST['std_age'], $_POST['class'], $_POST['prt_name'], $_POST['std_email'], $id);
     $stmt->execute();
 
     header("Location: StudentList.php");
